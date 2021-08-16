@@ -1,9 +1,10 @@
 toReadable = function(a){
+    let arr =new Array();
     while(a>0){
-       c=a%10;
-       let arr =new Array();
+       let c=a%10;
+      
        switch (c) {
-        case 1:
+        case 0:
             numder= 'zero';
           break;
         case 1:
@@ -35,13 +36,13 @@ toReadable = function(a){
           alert( "Нет таких значений" );
         }
         arr.unshift(numder);
-        a= a / 10;
+        var a= a / 10;
         Math.trunc(a);
     }
-    len= arr.length; 
-    counter=0;
+    let len= arr.length; 
+    let counter=0;
+    let stnum;
     while(0!=len){
-      
       if(len == 3){
           stnum+= arr[counter] ;
           stnum+=' hundred';
@@ -51,52 +52,52 @@ toReadable = function(a){
 
         if(len == 2){ 
 
-          if(arr[counter] != 1)
+          if(arr[counter] != 'one')
             switch (arr[counter]) {
-            case 0:
+            case 'zero':
               break;
-            case 1:
+            case 'one':
                 stnum+=' ten';
               break;
-            case 2:
-                numder= ' twenty' ;
+            case 'two':
+                stnum+= ' twenty' ;
               break;
-            case 3:
-                numder= ' thirty' ;
+            case 'three':
+                stnum+= ' thirty' ;
               break;
-            case 4:
-                numder= ' forty' ;
+            case 'four':
+                stnum+= ' forty' ;
               break;
-            case 5:
-                numder= ' fifty' ;
+            case 'five':
+                stnum+= ' fifty' ;
               break;
-            case 8:
-                numder= ' eighty' ;
+            case 'eight':
+                stnum+= ' eighty' ;
               break;
             default:
                 stnum+= arr[counter];
                 stnum+='ty'
             }
 
-          if(arr[counter] == 1)
+          if(arr[counter] == 'one')
             switch (arr[counter]) {
-            case 0:
+            case 'zero':
                 stnum+=' ten';
               break;
-            case 1:
-               numder= ' eleven' ;
+            case 'one':
+                stnum+= ' eleven' ;
               break;
-            case 2:
-              numder= ' twelve' ;
+            case 'two':
+                stnum+= ' twelve' ;
              break;
-            case 3:
-              numder= ' thirteen' ;
+            case 'three':
+                stnum+= ' thirteen' ;
              break;
-            case 5:
-              numder= ' fifteen' ;
+            case 'five':
+                stnum+= ' fifteen' ;
              break;
-            case 8:
-              numder= ' eighteen' ;
+            case 'eight':
+                stnum+= ' eighteen' ;
              break;
             default:
               stnum+= arr[counter];
@@ -112,3 +113,4 @@ toReadable = function(a){
     return stnum;
 }
 
+console.log(toReadable(56));
